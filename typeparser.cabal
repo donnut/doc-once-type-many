@@ -3,23 +3,26 @@
 
 name:                typeparser
 version:             0.1.0.0
-synopsis:            Parses jsdocs and builds typescript definition
+synopsis:            Parses jsdocs to build typescript definitions
 -- description:         
 -- license:             
-license-file:        LICENSE
+-- license-file:        LICENSE
 author:              Erwin Poeze
 maintainer:          erwin@mope.mobi
--- copyright:           
-category:            Development
+copyright:           2015, MOPE
+category:            Language
 build-type:          Simple
 -- extra-source-files:  
 cabal-version:       >=1.10
 
 executable typeparser
+  ghc-options:         -Wall
   main-is:             Main.hs
-  -- other-modules:       
+  hs-source-dirs:      src
+  other-modules:       Parser,
+                       Lexer     
   -- other-extensions:    
   build-depends:       base >=4.7 && <4.8,
                        parsec
-  -- hs-source-dirs:      
   default-language:    Haskell2010
+  build-tools:         alex, happy
