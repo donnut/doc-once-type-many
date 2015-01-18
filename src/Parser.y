@@ -21,6 +21,11 @@ module Parser (
         
 %%
 
-Param  : '@param' ParamType ParamName { Param $2 $3 }
+Param  : '@param' '{' ParamType '}' ParamName { Param $2 $3 }
 
-ParamType :  
+ParamType : 'function' {$1}
+          | 'string'   {$1}
+          | 'number' {$1}
+          | 'boolean' {$1}
+
+ParamName : 'string' {$1} 
